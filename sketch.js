@@ -15,31 +15,17 @@ function setup() {
  iss = createSprite(800, 300, 50, 50);
  iss.addImage(issimg);
  iss.scale = 1.1
- spacecraft = createSprite(300, 700, 50, 50);
+ spacecraft = createSprite(300, 600, 50, 50);
  spacecraft.addImage(spacecraft1);
  spacecraft.scale = 0.3
 }
-var rand = Math.round(random(1,6));
-    switch(rand) {
-      case 1: iss.x = 300
-              break;
-      case 2: iss.x = 700
-              break;
-      case 3: iss.x = 500
-              break;
-      case 4: iss.x = 900
-              break;
-      case 5: iss.x = 100
-              break;
-      case 6: iss.x = 1000
-              break;
-      default: break;
-    }
 function draw() {
   background(backgroundimg);  
-
-
-  if(keyIsDown(UP_ARROW))
+ 
+  if(!hasDocked)
+  { 
+   spacecraft.x = spacecraft.x + random(-1,1);
+   if(keyIsDown(UP_ARROW))
   {
     spacecraft.y = spacecraft.y-2;
     spacecraft.addImage(spacecraft2);
@@ -59,11 +45,17 @@ function draw() {
      spacecraft.addImage(spacecraft1);
   }
 
-
-  if(!hasDocked)
-  {
-    
   }
- 
+
+  
+
+ if(spacecraft.x = iss.x-70 && (spacecraft.y = iss.y+90))
+  { 
+    hasDocked = true
+     fill("White")
+    textSize(30)
+    text("Docking Successful!",900,600)
+  }
+
   drawSprites();
 }
