@@ -49,7 +49,7 @@ function draw() {
 
   
 
- if(spacecraft.x = iss.x-70 && (spacecraft.y = iss.y+90))
+ if(spacecraft.x <= (iss.x-10) && (spacecraft.y <= (iss.y+130)))
   { 
     hasDocked = true
      fill("White")
